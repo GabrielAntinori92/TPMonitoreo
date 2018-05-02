@@ -18,3 +18,10 @@ Estructura: se encuentra el pom.xml donde se configura el projecto maven y una c
   segun el arquetipo empleado en el projecto pueden encontrarse mas carpetas
 
 Artifact: un artifact es el resultado de el projecto, ej: un .jar, un arquetype solo una plantilla que se utilizara para dar la estructura del projecto. El artifact a su vez puede ser utilizado como dependencia.
+
+Spring:
+ @Component: Es un estereotipo general y permite anotar un bean para que spring lo considere uno de sus objetos
+ @Repository: Se encarga de dar de alta un bean que es el encargado de almacenar datos en una base de datos o repositorio de informacion que se necesite.
+ @Service: Es el encargado de gestionar las operaciones de negocio mas importantes a nivel de aplicacion.
+ @Controller: Este realiza las tareas de controlador y gestion de la comunicacion entre el usuario y la aplicacion.
+ 
