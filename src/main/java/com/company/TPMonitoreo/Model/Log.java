@@ -47,4 +47,5 @@ public class Log {
     public void setBrowser(String browser) {
         this.browser = browser;
     }
+
 }

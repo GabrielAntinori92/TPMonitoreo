@@ -43,27 +43,79 @@ public class LogController {
         return nuevo;
     }
 
-    /*@RequestMapping(value="/mostUsedBrowser")
+    @RequestMapping(value="/mostUsedBrowser")
     public String mostUsedBrowser(){
         List<Log> loglist = dao.findAll();
-        int[] countlist = {0,0,0};
+        int count_chrome = 0;
+        int count_firefox = 0;
 
         for(Log log : loglist){
             if(log.getBrowser().compareTo("Chrome 62")==0){
-                countlist[0]++;
-            }else if(log.getBrowser().compareTo("Firefox 56")==0){
-                countlist[1]++;
-            }else if(log.getBrowser().compareTo("Opera")==0){
-                countlist[2]++;
+                count_chrome++;
+            }else
+                if(log.getBrowser().compareTo("Firefox 56")==0){
+                count_firefox++;
+                }
+        }
+
+        String mostUsed = "";
+        if(count_chrome >= count_firefox){
+            mostUsed = "Chrome 62";
+        }else{
+            mostUsed = "Firefox 56";
+        }
+
+        return mostUsed ;
+    }
+
+
+    @RequestMapping(value="/mostUsedOS")
+    public String mostUsedOS(){
+        List<Log> loglist = dao.findAll();
+        int count_linux = 0;
+        int count_windows = 0;
+
+        for(Log log : loglist){
+            if(log.getSo().compareTo("Linux")==0){
+                count_linux++;
+            }else if(log.getSo().compareTo("Windows")==0){
+                count_windows++;
             }
         }
 
-        for (int i=0; i<countlist.length; i++){
-
+        String mostUsed = "";
+        if(count_linux >= count_windows){
+            mostUsed = "Linux";
+        }else {
+            mostUsed = "Windows";
         }
 
-        return ;
-    }*/
+        return mostUsed ;
 
+    }
+
+    @RequestMapping(value="/mostUsedSO&Browser")
+    public String mostUsedSOBrowser(){
+        List<Log> loglist = dao.findAll();
+        int count_linuxchrome = 0;
+        int count_linuxfirefox = 0;
+
+        for(Log log : loglist){
+            if(log.getBrowser().equals("Chrome 62") && log.getSo().equals("Linux")){
+                count_linuxchrome++;
+            }else{
+                count_linuxfirefox++;
+            }
+        }
+
+        String mostUsed = "";
+        if(count_linuxchrome >   count_linuxfirefox){
+            mostUsed = "Linux & Chrome 62";
+        }else{
+            mostUsed = "Linux & Firefox 56";
+        }
+
+        return mostUsed;
+    }
 
 }
